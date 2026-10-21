@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 3 — Cronograma de Projetos</title>
+    <style>
+         :root {
+            --surface-dark: #0f1b2d;
+            --card-white: #ffffff;
+            --primary: #0369a1;
+            --primary-hover: #075985;
+            --accent: #0d9488;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-light: #e2e8f0;
+            --radius-main: 20px;
+            --transicao: all .25s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(circle at 10% 15%, #062a3a 0%, #06101c 65%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 24px 14px 90px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0d9488 100%);
+            border-radius: var(--radius-main);
+            padding: 32px 24px;
+            margin-bottom: 24px;
+            color: #fff;
+            box-shadow: 0 12px 35px rgba(3, 105, 161, .4);
+        }
+        
+        .header .eyebrow {
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: .85;
+            margin-bottom: 8px;
+        }
+        
+        .header h1 {
+            font-size: 1.75rem;
+            letter-spacing: -.5px;
+            margin-bottom: 6px;
+        }
+        
+        .header p {
+            opacity: .95;
+            font-size: .98rem;
+        }
+        
+        .card {
+            background: var(--card-white);
+            border-radius: var(--radius-main);
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+        }
+        
+        .card p {
+            color: #334155;
+            margin-bottom: 12px;
+            font-size: .95rem;
+        }
+        
+        .tabela {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .9rem;
+            background: #fff;
+            border: 2px solid #0369a1;
+            border-radius: 10px;
+            margin: 0 0 10px;
+        }
+        
+        .tabela caption {
+            background: #0369a1;
+            color: #fff;
+            padding: 12px 16px;
+            font-weight: 700;
+            font-size: .9rem;
+            text-align: left;
+            caption-side: top;
+        }
+        
+        .tabela thead th {
+            background: #082f49;
+            color: #fff;
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 700;
+            border: 1px solid #1e3a5f;
+            font-size: .86rem;
+        }
+        
+        .tabela tbody th {
+            background: #e0f2fe;
+            color: #0c4a6e;
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 700;
+            border: 1px solid #bfdbfe;
+            font-size: .86rem;
+        }
+        
+        .tabela tbody td {
+            background: #fff;
+            color: #0f172a;
+            padding: 12px 14px;
+            border: 1px solid #e2e8f0;
+            font-size: .86rem;
+        }
+        
+        .tabela tbody tr:hover td,
+        .tabela tbody tr:hover th {
+            background: #f8fafc;
+        }
+        
+        .tabela tfoot th {
+            background: #dcfce7;
+            color: #14532d;
+            padding: 12px 14px;
+            border: 1px solid #86efac;
+            font-size: .86rem;
+            font-weight: 700;
+            text-align: left;
+        }
+        
+        .tabela tfoot td {
+            background: #f0fdf4;
+            color: #166534;
+            padding: 12px 14px;
+            border: 1px solid #bbf7d0;
+            font-size: .86rem;
+            font-weight: 700;
+        }
+        
+        .voltar {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: #7dd3fc;
+            text-decoration: none;
+            font-size: .82rem;
+            font-weight: 700;
+            letter-spacing: .3px;
+            transition: var(--transicao);
+        }
+        
+        .voltar:hover {
+            color: #fff;
+        }
+        
+        .nota {
+            font-size: .8rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        
+        .site-footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: .78rem;
+            padding: 22px 0;
+        }
+        
+        @media (max-width:768px) {
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            .card {
+                padding: 18px 14px;
+            }
+            .tabela {
+                font-size: .78rem;
+            }
+            .tabela th,
+            .tabela td {
+                padding: 9px 10px;
+                font-size: .78rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <a class="voltar" href="index.html">&larr; voltar ao índice</a>
+
+        <header class="header">
+            <p class="eyebrow">Desafio 03 &bull; Intermediário</p>
+            <h1>📆 Cronograma de Projetos</h1>
+            <p>Rodapé com total alinhado por <code>colspan</code>.</p>
+        </header>
+
+        <main class="card">
+            <table class="tabela">
+                <caption>Cronograma da Feira de Projetos 2026</caption>
+
+                <thead>
+                    <tr>
+                        <th scope="col">Projeto</th>
+                        <th scope="col">Equipe</th>
+                        <th scope="col">Responsável</th>
+                        <th scope="col">Entrega</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row">Portal da Cantina</th>
+                        <td>Alpha</td>
+                        <td>Marina Silva</td>
+                        <td>12/11/2026</td>
+                        <td>Concluído</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">App de Caronas</th>
+                        <td>Beta</td>
+                        <td>João Pereira</td>
+                        <td>20/11/2026</td>
+                        <td>Em andamento</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Painel de Notas</th>
+                        <td>Gamma</td>
+                        <td>Ana Costa</td>
+                        <td>05/11/2026</td>
+                        <td>Em andamento</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Blog da Escola</th>
+                        <td>Delta</td>
+                        <td>Pedro Lima</td>
+                        <td>28/10/2026</td>
+                        <td>Atrasado</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Total de projetos atrasados</td>
+                        <td>2</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <p class="nota">4 (colspan) + 1 = 5 colunas, igual ao thead. O total é dado, não cabeçalho &mdash; por isso <code>&lt;td&gt;</code>.</p>
+        </main>
+
+        <footer class="site-footer">Desafio 03 &bull; Tema 04: Tabelas em HTML</footer>
+    </div>
+
+</body>
+
+</html>
